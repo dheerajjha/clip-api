@@ -12,7 +12,8 @@ app = FastAPI(
 )
 
 # Global variables for model and device
-device = "cuda" if torch.cuda.is_available() else "cpu"
+# Always use CPU as specified by the user
+device = "cpu"
 model, preprocess = clip.load("ViT-B/32", device=device)
 model.eval()  # Set the model to evaluation mode
 

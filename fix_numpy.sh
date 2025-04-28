@@ -2,11 +2,17 @@
 
 set -e  # Exit immediately if a command exits with a non-zero status
 
-# Create a virtual environment if it doesn't exist
-if [ ! -d "venv" ]; then
-    echo "Creating virtual environment..."
-    python -m venv venv
+echo "Fixing NumPy compatibility issue..."
+
+# Remove existing virtual environment
+if [ -d "venv" ]; then
+    echo "Removing existing virtual environment..."
+    rm -rf venv
 fi
+
+# Create a new virtual environment
+echo "Creating new virtual environment..."
+python -m venv venv
 
 # Activate the virtual environment
 echo "Activating virtual environment..."
@@ -16,12 +22,8 @@ source venv/bin/activate
 echo "Upgrading pip and installing setuptools..."
 pip install --upgrade pip setuptools wheel
 
-# Ensure we're using a compatible NumPy version
-echo "Ensuring compatible NumPy version..."
-pip install "numpy<2.0.0"
-
-# Install dependencies
-echo "Installing dependencies..."
+# Install dependencies with pinned NumPy version
+echo "Installing dependencies with NumPy<2.0.0..."
 pip install -r requirements.txt
 
 # Check if installation was successful

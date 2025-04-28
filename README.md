@@ -1,6 +1,6 @@
 # CLIP API
 
-A simple FastAPI application that serves OpenAI's CLIP model for image-text similarity matching.
+A simple FastAPI application that serves OpenAI's CLIP model for image-text similarity matching, optimized for CPU-only usage.
 
 ## Features
 
@@ -13,6 +13,15 @@ A simple FastAPI application that serves OpenAI's CLIP model for image-text simi
 
 - Docker
 - Python 3.9+ (if running without Docker)
+
+## CPU-Only Configuration
+
+This API is specifically configured to run on CPU-only environments. The PyTorch packages are installed with CPU-only versions to ensure compatibility with systems without GPUs. This configuration:
+
+- Uses `torch==2.2.1+cpu`, `torchvision==0.17.1+cpu`, and `torchaudio==2.2.1+cpu`
+- Includes the PyTorch CPU-specific index URL
+- Explicitly sets the device to "cpu" in all model code
+- Optimizes memory usage for CPU environments
 
 ## Quick Start
 

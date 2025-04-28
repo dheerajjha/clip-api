@@ -4,7 +4,9 @@ WORKDIR /app
 
 # Install dependencies
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# Ensure we're using a compatible NumPy version first
+RUN pip install --no-cache-dir "numpy<2.0.0" && \
+    pip install --no-cache-dir -r requirements.txt
 
 # Copy application code
 COPY . .
