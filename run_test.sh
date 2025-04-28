@@ -13,4 +13,4 @@ python test_clip_api.py
 # Provide instructions for manual testing
 echo ""
 echo "You can also test the API manually using the Swagger UI:"
-echo "Open http://localhost:8000/docs in your browser"
+echo "Open http://localhost:80/docs in your browser"

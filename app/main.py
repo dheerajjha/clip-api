@@ -76,4 +76,4 @@ async def encode_text(text: str = Form(...)):
         raise HTTPException(status_code=500, detail=f"Error encoding text: {str(e)}")
 
 if __name__ == "__main__":
-    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("app.main:app", host="0.0.0.0", port=80, reload=True)

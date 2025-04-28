@@ -91,7 +91,7 @@ def test_encode_text(base_url, text):
 
 def main():
     parser = argparse.ArgumentParser(description="Test the CLIP API")
-    parser.add_argument("--url", default="http://localhost:8000", help="Base URL of the API")
+    parser.add_argument("--url", default="http://localhost:80", help="Base URL of the API")
     parser.add_argument("--image", help="Path to test image (will create one if not provided)")
     parser.add_argument("--text", default="a simple test image", help="Text to test with")
     args = parser.parse_args()

@@ -7,7 +7,7 @@ def test_clip_api():
     image_path = create_test_image("A simple test image")
     
     # API endpoint
-    url = "http://localhost:8000/predict"
+    url = "http://localhost:80/predict"
     
     # Text to compare with the image
     text = "A simple test image"

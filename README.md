@@ -54,10 +54,10 @@ This API is specifically configured to run on CPU-only environments. The PyTorch
 
 2. Run the container:
    ```
-   docker run -p 8000:8000 clip-api
+   docker run -p 80:80 clip-api
    ```
 
-3. Access the API at http://localhost:8000/docs
+3. Access the API at http://localhost:80/docs
 
 ### Manual Setup (Without Scripts or Docker)
 
@@ -74,7 +74,7 @@ This API is specifically configured to run on CPU-only environments. The PyTorch
 
 3. Run the application:
    ```
-   uvicorn app.main:app --host 0.0.0.0 --port 8000
+   uvicorn app.main:app --host 0.0.0.0 --port 80
    ```
 
 ## Testing the API
@@ -107,7 +107,7 @@ This API is specifically configured to run on CPU-only environments. The PyTorch
 #### Calculate Similarity
 
 ```bash
-curl -X POST "http://localhost:8000/predict" \
+curl -X POST "http://localhost:80/predict" \
   -H "accept: application/json" \
   -H "Content-Type: multipart/form-data" \
   -F "image=@your_image.jpg" \
@@ -117,7 +117,7 @@ curl -X POST "http://localhost:8000/predict" \
 #### Get Image Embeddings
 
 ```bash
-curl -X POST "http://localhost:8000/encode_image" \
+curl -X POST "http://localhost:80/encode_image" \
   -H "accept: application/json" \
   -H "Content-Type: multipart/form-data" \
   -F "image=@your_image.jpg"
@@ -126,7 +126,7 @@ curl -X POST "http://localhost:8000/encode_image" \
 #### Get Text Embeddings
 
 ```bash
-curl -X POST "http://localhost:8000/encode_text" \
+curl -X POST "http://localhost:80/encode_text" \
   -H "accept: application/json" \
   -H "Content-Type: multipart/form-data" \
   -F "text=your text description"
